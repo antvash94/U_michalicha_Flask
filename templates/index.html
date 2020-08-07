@@ -49,9 +49,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="banner-text">
-            <h2>Welcome to <span>U Michlicha</span> Hutor</h2>
+            <h2>Welcome to <span>U Mihalicha</span> Hutor</h2>
             <p>One of the most beautiful HTML5 template designed by W3Template.com</p>
-            <a href="#" class="banner-button">Learn More</a> </div>
+            <a href="https://www.booking.com/hotel/by/agrousadba-khutor-u-mikhalycha.ru.html" class="banner-button" target="_blank">Learn More</a> </div>
         </div>
       </div>
     </div>
@@ -198,23 +198,32 @@
 </div>
 <div class="contact" id="contact">
   <div class="container">
+
     <div class="row">
       <div class="col-md-12">
         <div class="text-center">
+          {% if error_statement %}
+          <p><h3>Contact Us</h3></p>
+    <p> <h3>{{error_statement}}</h3></p>
+          {% else %}
           <h3>Contact Us</h3>
+    {% endif %}
+
+
+
         </div>
       </div>
       <div class="col-md-7 col-sm-offset-0 col-sm-6 col-xs-offset-1 col-xs-10">
         <div class="contact-form">
-          <form role="form">
+          <form  action="/form" role="form" method="POST">
             <div class="col-md-6">
-              <input type="text" class="form-control" id="name" placeholder="Name">
+              <input type="text" class="form-control" id="name" placeholder="Name" name="name" value={{name}}>
             </div>
             <div class="col-md-6">
-              <input type="email" class="form-control" id="email" placeholder="Email">
+              <input type="email" class="form-control" id="email" placeholder="Email" name="email" value={{email}}>
             </div>
             <div class="col-md-12">
-              <textarea class="form-control" placeholder="Message" rows="6"></textarea>
+              <textarea class="form-control" placeholder="Message" rows="6" name="message"></textarea>
             </div>
             <div class="col-md-12 text-center">
               <button type="submit" class="contact-button">Send Message</button>
